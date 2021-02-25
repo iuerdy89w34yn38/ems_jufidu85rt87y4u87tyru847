@@ -1,0 +1,36 @@
+[15-Jun-2019 13:08:56 UTC] PHP Recoverable fatal error:  Object of class mysqli could not be converted to string in /home/ndcpak/public_html/test/plugins/require/require.php on line 5
+[15-Jun-2019 13:09:47 UTC] PHP Recoverable fatal error:  Object of class mysqli could not be converted to string in /home/ndcpak/public_html/test/plugins/require/require.php on line 5
+[15-Jun-2019 13:10:11 UTC] PHP Warning:  require_once(../../../include/connect.php): failed to open stream: No such file or directory in /home/ndcpak/public_html/test/plugins/require/require.php on line 3
+[15-Jun-2019 13:10:11 UTC] PHP Fatal error:  require_once(): Failed opening required '../../../include/connect.php' (include_path='.:/opt/cpanel/ea-php72/root/usr/share/pear') in /home/ndcpak/public_html/test/plugins/require/require.php on line 3
+[15-Jun-2019 13:10:58 UTC] PHP Warning:  require_once(../../../include/connect.php): failed to open stream: No such file or directory in /home/ndcpak/public_html/test/plugins/require/require.php on line 3
+[15-Jun-2019 13:10:58 UTC] PHP Fatal error:  require_once(): Failed opening required '../../../include/connect.php' (include_path='.:/opt/cpanel/ea-php72/root/usr/share/pear') in /home/ndcpak/public_html/test/plugins/require/require.php on line 3
+[15-Jun-2019 13:11:15 UTC] PHP Warning:  require_once(../../../include/connect.php): failed to open stream: No such file or directory in /home/ndcpak/public_html/test/plugins/require/require.php on line 3
+[15-Jun-2019 13:11:15 UTC] PHP Fatal error:  require_once(): Failed opening required '../../../include/connect.php' (include_path='.:/opt/cpanel/ea-php72/root/usr/share/pear') in /home/ndcpak/public_html/test/plugins/require/require.php on line 3
+[15-Jun-2019 13:11:15 UTC] PHP Warning:  require_once(../../../include/connect.php): failed to open stream: No such file or directory in /home/ndcpak/public_html/test/plugins/require/require.php on line 3
+[15-Jun-2019 13:11:15 UTC] PHP Fatal error:  require_once(): Failed opening required '../../../include/connect.php' (include_path='.:/opt/cpanel/ea-php72/root/usr/share/pear') in /home/ndcpak/public_html/test/plugins/require/require.php on line 3
+[15-Jun-2019 13:11:53 UTC] PHP Warning:  include(../../../include/connect.php): failed to open stream: No such file or directory in /home/ndcpak/public_html/test/plugins/require/require.php on line 3
+[15-Jun-2019 13:11:53 UTC] PHP Warning:  include(../../../include/connect.php): failed to open stream: No such file or directory in /home/ndcpak/public_html/test/plugins/require/require.php on line 3
+[15-Jun-2019 13:11:53 UTC] PHP Warning:  include(): Failed opening '../../../include/connect.php' for inclusion (include_path='.:/opt/cpanel/ea-php72/root/usr/share/pear') in /home/ndcpak/public_html/test/plugins/require/require.php on line 3
+[15-Jun-2019 13:11:53 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/ndcpak/public_html/test/plugins/require/require.php on line 7
+[15-Jun-2019 13:11:53 UTC] PHP Warning:  mysqli_error() expects parameter 1 to be mysqli, null given in /home/ndcpak/public_html/test/plugins/require/require.php on line 7
+[15-Jun-2019 13:15:57 UTC] PHP Fatal error:  Uncaught Error: Undefined constant 'n' in /home/ndcpak/public_html/test/plugins/require/require.php:15
+Stack trace:
+#0 {main}
+  thrown in /home/ndcpak/public_html/test/plugins/require/require.php on line 15
+[15-Jun-2019 13:16:02 UTC] PHP Fatal error:  Uncaught Error: Undefined constant 'n' in /home/ndcpak/public_html/test/plugins/require/require.php:15
+Stack trace:
+#0 {main}
+  thrown in /home/ndcpak/public_html/test/plugins/require/require.php on line 15
+[15-Jun-2019 13:35:46 UTC] PHP Warning:  mysqli_query(): Empty query in /home/ndcpak/public_html/test/plugins/require/require.php on line 55
+[15-Jun-2019 14:11:43 UTC] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/ndcpak/public_html/test/plugins/require/require.php:111
+Stack trace:
+#0 {main}
+  thrown in /home/ndcpak/public_html/test/plugins/require/require.php on line 111
+[15-Jun-2019 14:13:19 UTC] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/ndcpak/public_html/test/plugins/require/require.php:111
+Stack trace:
+#0 {main}
+  thrown in /home/ndcpak/public_html/test/plugins/require/require.php on line 111
+[15-Jun-2019 14:13:46 UTC] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/ndcpak/public_html/test/plugins/require/require.php:111
+Stack trace:
+#0 {main}
+  thrown in /home/ndcpak/public_html/test/plugins/require/require.php on line 111

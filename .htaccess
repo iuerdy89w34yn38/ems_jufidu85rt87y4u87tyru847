@@ -1,0 +1,52 @@
+Options +FollowSymLinks 
+
+RewriteEngine On
+
+
+
+# Rewrite for index.php,cars.php,...
+
+RewriteRule ^(home)$ index.php
+RewriteRule ^(products)$ product.php?page_name=$1
+RewriteRule ^(dproducts)$ dproduct.php?page_name=$1
+RewriteRule ^(sproducts)$ sproduct.php?page_name=$1
+RewriteRule ^(services)$ service.php?page_name=$1
+RewriteRule ^(dservices)$ dservice.php?page_name=$1
+RewriteRule ^(manages)$ manage.php?page_name=$1
+RewriteRule ^(clients)$ client.php?page_name=$1
+RewriteRule ^(blogs)$ blog.php?page_name=$1
+RewriteRule ^(gallery)$ gallary.php?page_name=$1
+RewriteRule ^(pages)$ page.php?page_name=$1
+RewriteRule ^(cpages)$ cpage.php?page_name=$1
+RewriteRule ^(contacts)$ contact.php?page_name=$1 
+RewriteRule ^(careers)$ career.php?page_name=$1 
+RewriteRule ^(associates)$ associate.php?page_name=$1 
+RewriteRule ^(news)$ new.php?page_name=$1 
+RewriteRule ^(images)$ image.php?page_name=$1 
+RewriteRule ^(videos)$ video.php?page_name=$1 
+RewriteRule ^(brands)$ brand.php?page_name=$1
+RewriteRule ^(productpage)$ productpage.php?page_name=$1
+RewriteRule ^(requestpro)$ requestpro.php?page_name=$1
+RewriteRule ^(searchs)$ search.php?page_name=$1
+
+
+
+# Rewrite for single variables
+
+RewriteRule ^page-([^/]+)$ page.php?page_name=$1
+RewriteRule ^products-([^/]+)$ product.php?product_name=$1
+RewriteRule ^dproducts-([^/]+)$ dproduct.php?dproduct_name=$1
+RewriteRule ^sproducts-([^/]+)$ sproduct.php?sproduct_name=$1
+RewriteRule ^services-([^/]+)$ service.php?service_name=$1
+RewriteRule ^blogs-([^/]+)$ blog.php?pages_name=$1
+RewriteRule ^dservices-([^/]+)$ dservice.php?dservice_name=$1
+RewriteRule ^clients-([^/]+)$ client.php?client_name=$1
+RewriteRule ^pages-([^/]+)$ page.php?pages_name=$1
+RewriteRule ^cpages-([^/]+)$ cpage.php?cpage_name=$1
+RewriteRule ^images-([^/]+)$ image.php?image_name=$1
+RewriteRule ^videos-([^/]+)$ video.php?video_name=$1
+RewriteRule ^brands-([^/]+)$ brand.php?brand_name=$1
+RewriteRule ^searchs-([^/]+)$ search.php?query_name=$1
+
+
+

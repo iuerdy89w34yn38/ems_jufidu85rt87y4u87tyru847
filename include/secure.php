@@ -1,0 +1,1 @@
+<?php if(empty($actid)) header ("location:login.php") ?>

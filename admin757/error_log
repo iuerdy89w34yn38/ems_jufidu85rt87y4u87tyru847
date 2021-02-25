@@ -1,0 +1,15 @@
+[15-Apr-2019 07:39:26 UTC] PHP Parse error:  syntax error, unexpected '}', expecting end of file in /home/ndcpak/public_html/test/admin757/new.php on line 237
+[15-Apr-2019 07:39:56 UTC] PHP Parse error:  syntax error, unexpected '}', expecting end of file in /home/ndcpak/public_html/test/admin757/new.php on line 237
+[15-Apr-2019 07:40:04 UTC] PHP Parse error:  syntax error, unexpected '}', expecting end of file in /home/ndcpak/public_html/test/admin757/new.php on line 237
+[15-Apr-2019 07:40:11 UTC] PHP Parse error:  syntax error, unexpected '}', expecting end of file in /home/ndcpak/public_html/test/admin757/new.php on line 237
+[16-Apr-2019 15:58:41 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/ndcpak/public_html/test/admin757/client.php on line 624
+[16-Apr-2019 15:59:25 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/ndcpak/public_html/test/admin757/client.php on line 624
+[16-Apr-2019 15:59:30 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/ndcpak/public_html/test/admin757/client.php on line 624
+[16-Apr-2019 16:00:07 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/ndcpak/public_html/test/admin757/client.php on line 624
+[16-Apr-2019 16:04:21 UTC] PHP Warning:  mysqli_query(): Empty query in /home/ndcpak/public_html/test/admin757/client.php on line 325
+[18-Apr-2019 06:20:11 UTC] PHP Warning:  mysqli_query(): Empty query in /home/ndcpak/public_html/test/admin757/client.php on line 325
+[18-Apr-2019 12:02:17 UTC] PHP Warning:  mysqli_query(): Empty query in /home/ndcpak/public_html/test/admin757/client.php on line 325
+[18-Apr-2019 12:16:20 UTC] PHP Warning:  mysqli_query(): Empty query in /home/ndcpak/public_html/test/admin757/client.php on line 325
+[25-Apr-2019 17:05:27 UTC] PHP Warning:  mysqli_query(): Empty query in /home/ndcpak/public_html/test/admin757/client.php on line 325
+[25-Apr-2019 17:09:07 UTC] PHP Warning:  mysqli_query(): Empty query in /home/ndcpak/public_html/test/admin757/client.php on line 325
+[23-May-2019 12:06:01 UTC] PHP Warning:  mysqli_query(): Empty query in /home/ndcpak/public_html/test/admin757/client.php on line 325
