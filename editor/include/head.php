@@ -13,8 +13,6 @@ if(!isset($_SESSION['editorid'])){
 
 
 
-
-
 <?php
 
 $rows =mysqli_query($con,"SELECT * FROM contact " ) or die(mysqli_error($con));

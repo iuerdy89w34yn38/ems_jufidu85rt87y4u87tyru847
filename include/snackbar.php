@@ -22,7 +22,7 @@
       z-index: 1; /* Add a z-index if needed */
       left: 50%; /* Center the snackbar */
       bottom: 30px; /* 30px from the bottom */
-      background: #ffa037;
+      background: #000;
     }
 
     /* Show the snackbar when clicking on a button (class added with JavaScript) */
