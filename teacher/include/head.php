@@ -4,33 +4,13 @@ if(!isset($_SESSION['teacherid'])){
 	header("location:../teacherlogin.php");
 }
 // Store Session Data
- $username= $_SESSION['name'];  // Initializing Session with value of PHP Variable 
+ $username= $_SESSION['teacherid'];  // Initializing Session with value of PHP Variable 
  ?>
 
 
 
  <?php include"../include/connect.php";?>
 
-
-  <?php 
-
-  if(isset($_POST['expire'])){
-    $msg="Unsuccessful" ;
-
-    $oid = $_POST['expire'];
-    $expreason = $_POST['expreason'];
-
-    $date = date('Y-m-d');
-    $sql = "UPDATE shop SET `status` = 'expired', `expreason` = '$expreason', `expdate` = '$date' WHERE `id` = '$oid' ";
-
-    mysqli_query($con, $sql) ;
-    ($msg=mysqli_error($con));
-    if(empty($msg))  $msg="Order Expired !";
-
-
-
-  }
-  ?>
 
 
 

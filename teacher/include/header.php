@@ -27,11 +27,8 @@
 
           <li><a <?php if($link=='home') echo'class="active"'?> href="home"> <i class="fa fa-dashboard"></i> Dashboard </a></li>
 
-          <li><a <?php if($link=='classes') echo'class="active"'?> href="classes"> <i class="fa fa-users"></i> Classes </a></li>
+          <li><a <?php if($link=='newpaper') echo'class="active"'?> href="newpaper"> <i class="fa fa-users"></i> View / Create Paper </a></li>
 
-          <li><a <?php if($link=='users') echo'class="active"'?> href="users"> <i class="fa fa-users"></i> Users Management </a></li>
-
-          <li><a <?php if($link=='manages') echo'class="active"'?> href="manages"><i class="fa fa-cog"></i>Admin Setting </a></li>
 
 
         </ul>

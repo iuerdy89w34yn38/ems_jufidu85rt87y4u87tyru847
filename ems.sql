@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Feb 26, 2021 at 04:19 AM
+-- Generation Time: Feb 26, 2021 at 03:53 PM
 -- Server version: 5.7.26
 -- PHP Version: 7.3.5
 
@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS `chapters` (
   `ordr` int(11) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `chapters`
@@ -47,7 +47,7 @@ INSERT INTO `chapters` (`id`, `name`, `ordr`, `created_at`) VALUES
 (3, 'Chapter 12', 3, '2021-02-17 14:43:38'),
 (4, 'Chapter 13', 4, '2021-02-17 14:43:38'),
 (5, 'Chapter 14', 5, '2021-02-17 14:55:16'),
-(6, 'Chapter 15', 6, '2021-02-17 14:55:16');
+(11, 'Chapter 15', 6, '2021-02-17 14:55:16');
 
 -- --------------------------------------------------------
 
@@ -215,6 +215,83 @@ INSERT INTO `mcqs` (`id`, `classid`, `subjectid`, `chapterid`, `ques`, `opt1`, `
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `paper`
+--
+
+DROP TABLE IF EXISTS `paper`;
+CREATE TABLE IF NOT EXISTS `paper` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `tid` int(11) NOT NULL,
+  `clid` int(11) NOT NULL,
+  `sid` int(11) NOT NULL,
+  `chid` varchar(11) DEFAULT NULL,
+  `name` text,
+  `mheading` text,
+  `tm` int(11) DEFAULT NULL,
+  `am` int(11) DEFAULT NULL,
+  `mm` int(11) DEFAULT NULL,
+  `sheading` text,
+  `ts` int(11) DEFAULT NULL,
+  `as` int(11) DEFAULT NULL,
+  `ms` int(11) DEFAULT NULL,
+  `lheading` text,
+  `tl` int(11) DEFAULT NULL,
+  `al` int(11) DEFAULT NULL,
+  `ml` int(11) DEFAULT NULL,
+  `datec` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `plong`
+--
+
+DROP TABLE IF EXISTS `plong`;
+CREATE TABLE IF NOT EXISTS `plong` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `pid` int(11) NOT NULL,
+  `lid` int(11) NOT NULL,
+  `typeid` int(11) DEFAULT NULL,
+  `ordr` int(11) DEFAULT NULL,
+  `datec` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pmcqs`
+--
+
+DROP TABLE IF EXISTS `pmcqs`;
+CREATE TABLE IF NOT EXISTS `pmcqs` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `pid` int(11) NOT NULL,
+  `mid` int(11) NOT NULL,
+  `datec` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=58 DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pshort`
+--
+
+DROP TABLE IF EXISTS `pshort`;
+CREATE TABLE IF NOT EXISTS `pshort` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `pid` int(11) NOT NULL,
+  `sid` int(11) NOT NULL,
+  `datec` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `sques`
 --
 
@@ -297,7 +374,7 @@ CREATE TABLE IF NOT EXISTS `teacher` (
 --
 
 INSERT INTO `teacher` (`id`, `name`, `email`, `password`, `area`, `status`, `created_at`, `phone`, `img`) VALUES
-(1, 'teach', 'teach@123.com', 'teach', NULL, 0, '2021-02-17 13:52:48', NULL, NULL);
+(1, 'Demo Teacher', 'teach@123.com', 'teach', NULL, 0, '2021-02-17 13:52:48', NULL, NULL);
 
 -- --------------------------------------------------------
 

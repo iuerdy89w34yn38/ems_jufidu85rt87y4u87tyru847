@@ -78,7 +78,11 @@ if(isset($_SESSION['teacherid'])){
 
 
 
-                       $_SESSION['teacherid']=$email; // Initializing Session
+                       $rowsx =mysqli_query($con,"SELECT id FROM teacher WHERE email='$email'" ) or die(mysqli_error($con));
+                   while($rowx=mysqli_fetch_array($rowsx)){
+                    $tid= $rowx['id'];
+                    }
+                       $_SESSION['teacherid']=$tid; // Initializing Session
                       
                   
                        header("location:teacher/index.php"); // Redirecting To Other Page
