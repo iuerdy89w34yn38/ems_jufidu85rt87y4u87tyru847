@@ -140,7 +140,7 @@
 
   <tbody>
     <?php
-    $rows =mysqli_query($con,"SELECT * FROM pmcqs WHERE pid=$pid " ) or die(mysqli_error($con));
+    $rows =mysqli_query($con,"SELECT * FROM pmcqs WHERE pid=$pid  ORDER BY ordr " ) or die(mysqli_error($con));
     $n=1;
     while($row=mysqli_fetch_array($rows)){
       $mid = $row['mid'];

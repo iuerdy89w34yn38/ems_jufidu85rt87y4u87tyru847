@@ -99,15 +99,20 @@
    if ($sid==8) {
 
       $rowsx =mysqli_query($con,"SELECT id FROM mcqs WHERE subjectid='$sid' AND  classid='$clid' AND  chapterid LIKE '$chid'   ORDER BY RAND() LIMIT $tm" ) or die(mysqli_error($con));
+      $n=1;
+      
           while($rowx=mysqli_fetch_array($rowsx)){
               $mid= $rowx['id'];
-              $data=mysqli_query($con,"INSERT INTO pmcqs (pid,mid)VALUES ($pid,'$mid')")or die( mysqli_error($con) );
+              $data=mysqli_query($con,"INSERT INTO pmcqs (pid,mid,ordr)VALUES ($pid,'$mid','$n')")or die( mysqli_error($con) );
+              $n++;
             }
 
       $rowsx =mysqli_query($con,"SELECT id FROM sques WHERE subjectid='$sid' AND  classid='$clid' AND  chapterid LIKE '$chid'    ORDER BY RAND() LIMIT $ts" ) or die(mysqli_error($con));
+      $n=1;
           while($rowx=mysqli_fetch_array($rowsx)){
               $sqid= $rowx['id'];
-              $data=mysqli_query($con,"INSERT INTO pshort (pid,sid) VALUES ($pid,'$sqid')")or die( mysqli_error($con) );
+              $data=mysqli_query($con,"INSERT INTO pshort (pid,sid,ordr) VALUES ($pid,'$sqid','$n')")or die( mysqli_error($con) );
+              $n++;
             }
       $rowsx =mysqli_query($con,"SELECT id,typeid FROM lques WHERE subjectid='$sid' AND  classid='$clid' AND  chapterid LIKE '$chid' AND typeid=1    ORDER BY RAND() LIMIT $tl" ) or die(mysqli_error($con));
       $n=1;

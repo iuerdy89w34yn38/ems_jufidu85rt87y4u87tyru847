@@ -91,6 +91,18 @@
 		
 	};
 
+
+(function(window, document, $) {
+	'use strict';
+
+  // Basic Select2 select
+	$(".select2").select2();
+
+})(window, document, jQuery);
+
+
+
+
 </script>
 
 
