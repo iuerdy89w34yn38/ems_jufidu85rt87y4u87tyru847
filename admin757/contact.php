@@ -8,8 +8,8 @@
       Contact Details
     </title>
 
-    <?php $link = $_GET['page_name'] ?>
-    <?php $page = $_GET['page_name'] ?>
+    <?php $link = 'contact' ?>
+    <?php $page = 'contact' ?>
 
 
 
@@ -148,133 +148,24 @@
      
 
 
+    <hr>
+    <center><h2>Site Details</center>
+ 
 
-        <?php
-    $rows =mysqli_query($con,"SELECT * FROM pages where slug='contacts' " ) or die(mysqli_error($con));
 
-
-    while($row=mysqli_fetch_array($rows)){
-
-      $pageid = $row['id'];  
-      $pagename = $row['name'];
-      $pagemetak = $row['metak'];
-      $pagemetad = $row['metad'];
-      $pagepost = $row['post'];
-      $pagecover = $row['cover'];
-      $pageslug = $row['slug'];
-
-    }
-    ?>
 
     <div class="container-fluid main-content">
-
       <div class="row">
         <!-- Basic Table -->
         <div class="col-lg-1">
         </div>
-        <div class="col-lg-10" style="background: #fff">
-<!--
-         
-
-                 <div class="widget-container fluid-height clearfix">
+        <div class="col-lg-10">
+          <div class="widget-container fluid-height clearfix">
             <div class="heading" style="text-transform: capitalize;">
-              <i class="fa fa-image"></i> Contact Page
+              <i class="fa fa-images"></i> Existing Papers
             </div>
             <div class="widget-content padded clearfix">
-
-
-        <div class="row">
-
-          <div class="col-md-1">
-          </div>
-          <div class="col-md-10">
-                        <img style="width: 100%" src="../images/covers/<?php echo $pagecover ?>"  >
-                        <br>
-                        <br>
-                      </div>
-        </div>
-
- <form method="post" action="" enctype="multipart/form-data">
-
-                      <div class="row">
-
-                        <div class="col-md-12">
-
-                          <table class="table table-bordered">
-                            <thead>
-                              <th>
-                               Name 
-                             </th>
-
-                             <th>
-                               Slug 
-                             </th>
-
-                             <th>
-                              Meta Keywords
-                            </th>
-                            <th>
-                              Meta Description
-                            </th>
-                            <th>
-                              Change Cover
-                            </th>
-
-                          </thead>
-                          <tbody>
-                            <tr>
-                              <td>
-                                <input type="text" class="form-control" name="name" value="<?php echo $pagename ?>">
-                              </td>
-
-                              <td>
-                                <input type="text" readonly="" class="form-control" name="slug" value="<?php echo $pageslug ?>">
-                              </td>
-                              <td>
-                                <input type="text" class="form-control" name="metak" value="<?php echo $pagemetak ?>">
-                              </td>
-                              <td>
-                                <input type="text" class="form-control" name="metad" value="<?php echo $pagemetad ?>">
-                              </td>
-                              <td>
-                                <input type="file" class="form-control" name="image1" >
-                              </td>
-
-
-
-
-
-                            </tr>
-                          </tbody>
-
-                        </table>
-
-                      </div>
-                    </div>
-                    <div class="row">
-
-
-                      <div class="col-md-12">
-
-                        
-                       <textarea  name="editor1"><?php echo $pagepost ?></textarea>
-
-                     </div>
-                   </div>
-                   <br><br>
-
-                   <center>
-                    <button type="submit" name="saveinfo" class="btn btn-primary" value="<?php echo $pageid ?>"> <i class="fa fa-save"></i> Save</button>
-                  </center>
-                </form>
-
--->
-
-
-    <hr>
-    <center><h2>Site Details</center>
-  
-
+              
     <?php
 
     $rows =mysqli_query($con,"SELECT * FROM contact " ) or die(mysqli_error($con));

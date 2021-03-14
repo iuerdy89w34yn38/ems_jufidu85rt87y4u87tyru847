@@ -63,6 +63,30 @@
 
 
 
+  for ($i=0; $i < $ilimit ; $i++) { 
+
+    if(isset($_POST['solcat'.$i])){
+      $msg="Unsuccessful" ;
+
+      $id=$_POST['solcat'.$i];
+      $solval=$_POST['solval'.$i];
+      if($solval==1) $solval=0; else $solval=1;
+
+      $sql = "UPDATE paper SET `sol` = '$solval' WHERE `id` =$id";
+
+      mysqli_query($con, $sql) ;
+      ($msg=mysqli_error($con));
+
+      if(empty($msg))  $msg='Updated';
+
+
+
+    }
+
+  }
+
+
+
 
   if(isset($_POST['addcat'])){
 
@@ -100,7 +124,7 @@
 
       $rowsx =mysqli_query($con,"SELECT id FROM mcqs WHERE subjectid='$sid' AND  classid='$clid' AND  chapterid LIKE '$chid'   ORDER BY RAND() LIMIT $tm" ) or die(mysqli_error($con));
       $n=1;
-      
+
           while($rowx=mysqli_fetch_array($rowsx)){
               $mid= $rowx['id'];
               $data=mysqli_query($con,"INSERT INTO pmcqs (pid,mid,ordr)VALUES ($pid,'$mid','$n')")or die( mysqli_error($con) );
@@ -191,12 +215,15 @@
                   Subject
                 </th>
                 <th>
-                  Class
+                  Marks
                 </th>
                 <th>
                   Date Created
                 </th>
 
+                <th>
+                  Active
+                </th>
 
                 <th style="min-width: 100px">
                   Action
@@ -211,13 +238,49 @@
                 $rows =mysqli_query($con,"SELECT * FROM paper ORDER BY id" ) or die(mysqli_error($con));
                 $n=0;
                 while($row=mysqli_fetch_array($rows)){
-
+ 
+                  $id = $row['id']; 
+                  $tid = $row['tid']; 
                   $name = $row['name'];
                   $clid=$row['clid'];
                   $sid=$row['sid'];
                   $chid=$row['chid']; 
                   $datec=$row['datec']; 
-                  $id = $row['id']; 
+                  $mheading=$row['mheading'];
+                  $tm=$row['tm'];
+                  $am=$row['am'];
+                  $mm=$row['mm'];
+                  $sheading=$row['sheading'];
+                  $ts=$row['ts'];
+                  $as=$row['as'];
+                  $ms=$row['ms'];
+                  $lheading=$row['lheading'];
+                  $tl=$row['tl'];
+                  $al=$row['al'];
+                  $ml=$row['ml'];
+                  $sol=$row['sol'];
+                  $rowsx =mysqli_query($con,"SELECT name FROM teacher WHERE id='$tid'" ) or die(mysqli_error($con));
+                  while($rowx=mysqli_fetch_array($rowsx)){
+                   $tname= $rowx['name'];
+                 }
+                 $rowsx =mysqli_query($con,"SELECT name FROM classes WHERE id='$clid'" ) or die(mysqli_error($con));
+                 while($rowx=mysqli_fetch_array($rowsx)){
+                   $clname= $rowx['name'];
+                 }
+                 $rowsx =mysqli_query($con,"SELECT name FROM subjects WHERE id='$sid'" ) or die(mysqli_error($con));
+                 while($rowx=mysqli_fetch_array($rowsx)){
+                   $sname= $rowx['name'];
+                 } 
+                 $rowsx =mysqli_query($con,"SELECT name FROM chapters WHERE id='$chid'" ) or die(mysqli_error($con));
+                 while($rowx=mysqli_fetch_array($rowsx)){
+                   $chname= $rowx['name'];
+                 }
+
+                 $tmm=$am*$mm;   
+                 $tms=$as*$ms;   
+                 $tml=$al*$ml;
+                 $total=  $tmm+$tms+$tml; 
+
 
                   ?>
 
@@ -254,13 +317,7 @@
 
 
                       <td>
-                        
-                        <?php 
-                         $rowsx =mysqli_query($con,"SELECT name FROM chapters WHERE id='$chid'" ) or die(mysqli_error($con));
-                   while($rowx=mysqli_fetch_array($rowsx)){
-                    echo $chname= $rowx['name'];
-                    }
-                     ?>
+                        <?php echo $total ?> Marks
                       </td>
                       <td>
                         
@@ -269,10 +326,19 @@
                       </td>
 
 
+                      <td>
+                  <form method="post" action="" enctype="multipart/form-data">
+
+                        <div class="btn-group">
+                        <input type="text" name="solval<?php echo $n ?>" value="<?php echo $sol ?>" class="hidden">
+
+                          <button type="submit" name="solcat<?php echo $n ?>" class="btn btn-primary-outline" value="<?php echo $id ?>"> <i class="fa fa-<?php echo ($sol==1) ? 'check' : 'minus'; ?>"></i></button>
+                        </div>
+
+                      </td>
 
 
                       <td>
-                  <form method="post" action="" enctype="multipart/form-data">
 
                         <div class="btn-group">
 
@@ -290,7 +356,7 @@
 
 
                   <tr>
-                    <td colspan="6" class="text-center">
+                    <td colspan="7" class="text-center">
 
 
                       <!-- Button trigger modal -->

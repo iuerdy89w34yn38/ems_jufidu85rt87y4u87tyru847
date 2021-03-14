@@ -81,7 +81,7 @@ if(isset($_SESSION['admin'])){
                        $_SESSION['name']=$username; // Initializing Session
                       
                   
-                       header("location:admin757/products"); // Redirecting To Other Page
+                       header("location:admin757/index"); // Redirecting To Other Page
                        } else {
                         echo "Username or Password is Invalid";
 

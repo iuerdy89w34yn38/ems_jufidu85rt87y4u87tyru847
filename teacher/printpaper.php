@@ -89,6 +89,9 @@
      $chname= $rowx['name'];
    }
 
+if (empty($chname)) {
+  $chname='All Chapters';
+}
    $tmm=$am*$mm;   
    $tms=$as*$ms;   
    $tml=$al*$ml;
@@ -118,6 +121,7 @@
       Student Roll:
     </th>
     <th style="text-align: right;">
+      <?php echo $chname ?> <br> 
       <?php echo $sname ?> - 
       <?php echo $clname ?>
       <br>

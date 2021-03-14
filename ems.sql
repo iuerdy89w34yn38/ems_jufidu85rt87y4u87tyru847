@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Mar 02, 2021 at 02:10 AM
+-- Generation Time: Mar 09, 2021 at 07:21 AM
 -- Server version: 5.7.26
 -- PHP Version: 7.3.5
 
@@ -21,6 +21,28 @@ SET time_zone = "+00:00";
 --
 -- Database: `ems`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admins`
+--
+
+DROP TABLE IF EXISTS `admins`;
+CREATE TABLE IF NOT EXISTS `admins` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(40) NOT NULL,
+  `password` varchar(40) NOT NULL,
+  `role` varchar(10) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `admins`
+--
+
+INSERT INTO `admins` (`id`, `username`, `password`, `role`) VALUES
+(2, 'admin', 'admin', '');
 
 -- --------------------------------------------------------
 
@@ -62,7 +84,7 @@ CREATE TABLE IF NOT EXISTS `classes` (
   `ordr` int(11) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `classes`
@@ -73,7 +95,8 @@ INSERT INTO `classes` (`id`, `name`, `ordr`, `created_at`) VALUES
 (2, '9th Red', 3, '2021-02-17 14:43:03'),
 (3, '10th Red', 0, '2021-02-17 14:43:38'),
 (4, '9th Green', 2, '2021-02-17 14:43:38'),
-(5, '10th Blue', 5, '2021-02-17 14:55:16');
+(5, '10th Blue', 5, '2021-02-17 14:55:16'),
+(7, '8th Pink', 6, '2021-03-09 07:08:18');
 
 -- --------------------------------------------------------
 
@@ -105,7 +128,7 @@ CREATE TABLE IF NOT EXISTS `contact` (
 --
 
 INSERT INTO `contact` (`id`, `sitename`, `logo`, `phone`, `email`, `address`, `gmaps`, `cover`, `post`, `fpost`, `facebook`, `twitter`, `insta`, `youtube`) VALUES
-(1, 'EMS', 'b5777c0ff53dac3e89e8f26d61745e331.png', '+92 123 456789', 'company@email.com', 'Company, Lahore. (Pakistan).                                ', 'Map Code           ', 'b83d69d563a0d0469c59dbfe1cec621f1.png', '<p>test</p>\r\n', 'From the catalytic converter to the alternator, your car is filled with a host of parts that come together to power your vehicle down the road. While it may feel like a foreign language, having a working understanding of the parts of your vehicle will make you an educated consumer that will be able to converse with your mechanic when the time comes.', 'http://www.facebook.com', 'http://www.twitter.com', 'http://www.instagram.com', 'http://www.youtube.com');
+(1, 'Demo Academy ', 'ebd8374f8e3327086e13b733caf8632f1.png', '+92 123 456789', 'company@email.com', 'Company, Lahore. (Pakistan).                                 ', 'Map Code            ', 'b83d69d563a0d0469c59dbfe1cec621f1.png', '<p>test</p>\r\n', 'From the catalytic converter to the alternator, your car is filled with a host of parts that come together to power your vehicle down the road. While it may feel like a foreign language, having a working understanding of the parts of your vehicle will make you an educated consumer that will be able to converse with your mechanic when the time comes. ', 'http://www.facebook.com', 'http://www.twitter.com', 'http://www.instagram.com', 'http://www.youtube.com');
 
 -- --------------------------------------------------------
 
@@ -119,20 +142,20 @@ CREATE TABLE IF NOT EXISTS `editor` (
   `name` text NOT NULL,
   `email` varchar(31) NOT NULL,
   `password` varchar(21) NOT NULL,
-  `area` text,
-  `status` int(11) DEFAULT '0',
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `phone` text,
   `img` text,
+  `phone` text,
+  `block` int(11) DEFAULT '0',
+  `blockres` text,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `editor`
 --
 
-INSERT INTO `editor` (`id`, `name`, `email`, `password`, `area`, `status`, `created_at`, `phone`, `img`) VALUES
-(1, 'editor', 'editor@123.com', 'editor', NULL, 0, '2021-02-17 13:52:48', NULL, NULL);
+INSERT INTO `editor` (`id`, `name`, `email`, `password`, `img`, `phone`, `block`, `blockres`, `created_at`) VALUES
+(1, 'Demo Editor', 'editor@123.com', 'editor', 'eb526642d00a3c6023513d3bde0b7ef51.png', '2423423', 0, '', '2021-02-17 13:52:48');
 
 -- --------------------------------------------------------
 
@@ -238,9 +261,21 @@ CREATE TABLE IF NOT EXISTS `paper` (
   `tl` int(11) DEFAULT NULL,
   `al` int(11) DEFAULT NULL,
   `ml` int(11) DEFAULT NULL,
+  `sol` int(11) NOT NULL DEFAULT '1',
   `datec` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `paper`
+--
+
+INSERT INTO `paper` (`id`, `tid`, `clid`, `sid`, `chid`, `name`, `mheading`, `tm`, `am`, `mm`, `sheading`, `ts`, `as`, `ms`, `lheading`, `tl`, `al`, `ml`, `sol`, `datec`) VALUES
+(16, 1, 3, 8, '%', 'New Sample Test Paper Name', 'Attempt the Following MCQs. No Multiple Marking Allowed.', 9, 10, 1, 'Attempt any 5 Short Questions of your choice. Extra Questions are not Allowed.', 6, 5, 3, 'Attempt any 3 Long Questions of your choice.', 3, 2, 10, 1, '2021-03-02 02:12:23'),
+(17, 1, 3, 8, '%', 'New Sample Test Paper Name', 'Attempt the Following MCQs. No Multiple Marking Allowed.', 9, 8, 1, 'Attempt any 5 Short Questions of your choice. Extra Questions are not Allowed.', 6, 5, 2, 'Attempt any 3 Long Questions of your choice.', 5, 3, 5, 0, '2021-03-03 08:38:38'),
+(18, 1, 3, 8, '%', 'Test Paper New', 'Attempt the Following MCQs. No Multiple Marking Allowed.', 6, 8, 1, 'Attempt any 5 Short Questions of your choice. Extra Questions are not Allowed.', 5, 5, 5, 'Attempt any 3 Long Questions of your choice.', 4, 3, 9, 0, '2021-03-08 08:42:57'),
+(19, 1, 3, 8, '%', 'Physics paper', 'Attempt the Following MCQs. No Multiple Marking Allowed.', 15, 12, 1, 'Attempt any 5 Short Questions of your choice. Extra Questions are not Allowed.', 8, 5, 2, 'Attempt any 3 Long Questions of your choice.', 4, 3, 6, 1, '2021-03-09 06:43:21'),
+(20, 1, 3, 8, '%', 'Physics paper', 'Attempt the Following MCQs. No Multiple Marking Allowed.', 15, 12, 1, 'Attempt any 5 Short Questions of your choice. Extra Questions are not Allowed.', 8, 5, 2, 'Attempt any 3 Long Questions of your choice.', 4, 3, 6, 1, '2021-03-09 06:43:22');
 
 -- --------------------------------------------------------
 
@@ -257,7 +292,52 @@ CREATE TABLE IF NOT EXISTS `plong` (
   `ordr` int(11) DEFAULT NULL,
   `datec` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=24 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=63 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `plong`
+--
+
+INSERT INTO `plong` (`id`, `pid`, `lid`, `typeid`, `ordr`, `datec`) VALUES
+(31, 17, 6, 1, 2, '2021-03-03 08:38:38'),
+(30, 17, 4, 1, 1, '2021-03-03 08:38:38'),
+(29, 16, 12, 2, 3, '2021-03-02 02:12:23'),
+(28, 16, 9, 2, 2, '2021-03-02 02:12:23'),
+(27, 16, 11, 2, 1, '2021-03-02 02:12:23'),
+(26, 16, 5, 1, 3, '2021-03-02 02:12:23'),
+(25, 16, 7, 1, 2, '2021-03-02 02:12:23'),
+(24, 16, 13, 1, 1, '2021-03-02 02:12:23'),
+(32, 17, 8, 1, 3, '2021-03-03 08:38:38'),
+(33, 17, 13, 1, 4, '2021-03-03 08:38:38'),
+(34, 17, 7, 1, 5, '2021-03-03 08:38:38'),
+(35, 17, 10, 2, 1, '2021-03-03 08:38:38'),
+(36, 17, 11, 2, 2, '2021-03-03 08:38:38'),
+(37, 17, 9, 2, 3, '2021-03-03 08:38:38'),
+(38, 17, 12, 2, 4, '2021-03-03 08:38:38'),
+(39, 18, 6, 1, 1, '2021-03-08 08:42:57'),
+(40, 18, 5, 1, 2, '2021-03-08 08:42:57'),
+(41, 18, 4, 1, 3, '2021-03-08 08:42:57'),
+(42, 18, 7, 1, 4, '2021-03-08 08:42:57'),
+(43, 18, 12, 2, 1, '2021-03-08 08:42:57'),
+(44, 18, 9, 2, 2, '2021-03-08 08:42:57'),
+(45, 18, 11, 2, 3, '2021-03-08 08:42:57'),
+(46, 18, 10, 2, 4, '2021-03-08 08:42:57'),
+(47, 19, 8, 1, 1, '2021-03-09 06:43:22'),
+(48, 19, 13, 1, 2, '2021-03-09 06:43:22'),
+(49, 19, 5, 1, 3, '2021-03-09 06:43:22'),
+(50, 19, 7, 1, 4, '2021-03-09 06:43:22'),
+(51, 19, 9, 2, 1, '2021-03-09 06:43:22'),
+(52, 19, 12, 2, 2, '2021-03-09 06:43:22'),
+(53, 19, 11, 2, 3, '2021-03-09 06:43:22'),
+(54, 19, 10, 2, 4, '2021-03-09 06:43:22'),
+(55, 20, 13, 1, 1, '2021-03-09 06:43:22'),
+(56, 20, 6, 1, 2, '2021-03-09 06:43:22'),
+(57, 20, 5, 1, 3, '2021-03-09 06:43:22'),
+(58, 20, 7, 1, 4, '2021-03-09 06:43:22'),
+(59, 20, 12, 2, 1, '2021-03-09 06:43:22'),
+(60, 20, 9, 2, 2, '2021-03-09 06:43:22'),
+(61, 20, 10, 2, 3, '2021-03-09 06:43:22'),
+(62, 20, 11, 2, 4, '2021-03-09 06:43:22');
 
 -- --------------------------------------------------------
 
@@ -273,7 +353,67 @@ CREATE TABLE IF NOT EXISTS `pmcqs` (
   `ordr` int(11) DEFAULT NULL,
   `datec` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=68 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=127 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `pmcqs`
+--
+
+INSERT INTO `pmcqs` (`id`, `pid`, `mid`, `ordr`, `datec`) VALUES
+(77, 16, 16, 14, '2021-03-02 02:12:23'),
+(76, 16, 9, 9, '2021-03-02 02:12:23'),
+(80, 17, 7, 1, '2021-03-03 08:38:38'),
+(74, 16, 20, 7, '2021-03-02 02:12:23'),
+(79, 16, 13, 3, '2021-03-02 07:41:27'),
+(72, 16, 12, 5, '2021-03-02 02:12:23'),
+(71, 16, 10, 4, '2021-03-02 02:12:23'),
+(70, 16, 15, 0, '2021-03-02 02:12:23'),
+(69, 16, 7, 2, '2021-03-02 02:12:23'),
+(68, 16, 8, 1, '2021-03-02 02:12:23'),
+(81, 17, 9, 2, '2021-03-03 08:38:38'),
+(82, 17, 21, 3, '2021-03-03 08:38:38'),
+(83, 17, 20, 4, '2021-03-03 08:38:38'),
+(84, 17, 16, 5, '2021-03-03 08:38:38'),
+(85, 17, 8, 6, '2021-03-03 08:38:38'),
+(86, 17, 17, 7, '2021-03-03 08:38:38'),
+(87, 17, 12, 8, '2021-03-03 08:38:38'),
+(88, 17, 13, 9, '2021-03-03 08:39:17'),
+(89, 18, 21, 1, '2021-03-08 08:42:57'),
+(90, 18, 20, 2, '2021-03-08 08:42:57'),
+(91, 18, 9, 3, '2021-03-08 08:42:57'),
+(92, 18, 18, 4, '2021-03-08 08:42:57'),
+(93, 18, 11, 5, '2021-03-08 08:42:57'),
+(94, 18, 19, 6, '2021-03-08 08:42:57'),
+(97, 19, 15, 1, '2021-03-09 06:43:22'),
+(98, 19, 11, 2, '2021-03-09 06:43:22'),
+(99, 19, 7, 3, '2021-03-09 06:43:22'),
+(100, 19, 16, 4, '2021-03-09 06:43:22'),
+(101, 19, 8, 5, '2021-03-09 06:43:22'),
+(102, 19, 19, 6, '2021-03-09 06:43:22'),
+(103, 19, 21, 7, '2021-03-09 06:43:22'),
+(104, 19, 17, 8, '2021-03-09 06:43:22'),
+(105, 19, 18, 9, '2021-03-09 06:43:22'),
+(106, 19, 12, 10, '2021-03-09 06:43:22'),
+(107, 19, 13, 11, '2021-03-09 06:43:22'),
+(108, 19, 10, 12, '2021-03-09 06:43:22'),
+(109, 19, 14, 13, '2021-03-09 06:43:22'),
+(110, 19, 20, 14, '2021-03-09 06:43:22'),
+(111, 19, 9, 15, '2021-03-09 06:43:22'),
+(112, 20, 9, 1, '2021-03-09 06:43:22'),
+(113, 20, 18, 2, '2021-03-09 06:43:22'),
+(114, 20, 8, 3, '2021-03-09 06:43:22'),
+(115, 20, 14, 4, '2021-03-09 06:43:22'),
+(116, 20, 13, 5, '2021-03-09 06:43:22'),
+(117, 20, 16, 6, '2021-03-09 06:43:22'),
+(118, 20, 10, 7, '2021-03-09 06:43:22'),
+(119, 20, 12, 8, '2021-03-09 06:43:22'),
+(120, 20, 15, 9, '2021-03-09 06:43:22'),
+(121, 20, 17, 10, '2021-03-09 06:43:22'),
+(122, 20, 19, 11, '2021-03-09 06:43:22'),
+(123, 20, 7, 12, '2021-03-09 06:43:22'),
+(124, 20, 20, 13, '2021-03-09 06:43:22'),
+(125, 20, 21, 14, '2021-03-09 06:43:22'),
+(126, 20, 11, 15, '2021-03-09 06:43:22');
 
 -- --------------------------------------------------------
 
@@ -289,7 +429,114 @@ CREATE TABLE IF NOT EXISTS `pshort` (
   `ordr` int(11) DEFAULT NULL,
   `datec` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=27 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=60 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `pshort`
+--
+
+INSERT INTO `pshort` (`id`, `pid`, `sid`, `ordr`, `datec`) VALUES
+(32, 16, 11, 6, '2021-03-02 02:12:23'),
+(31, 16, 7, 5, '2021-03-02 02:12:23'),
+(30, 16, 5, 4, '2021-03-02 02:12:23'),
+(29, 16, 4, 3, '2021-03-02 02:12:23'),
+(28, 16, 10, 2, '2021-03-02 02:12:23'),
+(27, 16, 12, 1, '2021-03-02 02:12:23'),
+(33, 17, 5, 1, '2021-03-03 08:38:38'),
+(34, 17, 12, 2, '2021-03-03 08:38:38'),
+(35, 17, 11, 3, '2021-03-03 08:38:38'),
+(36, 17, 3, 4, '2021-03-03 08:38:38'),
+(37, 17, 9, 5, '2021-03-03 08:38:38'),
+(38, 17, 10, 6, '2021-03-03 08:38:38'),
+(39, 18, 3, 1, '2021-03-08 08:42:57'),
+(40, 18, 10, 2, '2021-03-08 08:42:57'),
+(41, 18, 7, 3, '2021-03-08 08:42:57'),
+(42, 18, 8, 4, '2021-03-08 08:42:57'),
+(43, 18, 4, 5, '2021-03-08 08:42:57'),
+(44, 19, 5, 1, '2021-03-09 06:43:22'),
+(45, 19, 3, 2, '2021-03-09 06:43:22'),
+(46, 19, 12, 3, '2021-03-09 06:43:22'),
+(47, 19, 6, 4, '2021-03-09 06:43:22'),
+(48, 19, 8, 5, '2021-03-09 06:43:22'),
+(49, 19, 7, 6, '2021-03-09 06:43:22'),
+(50, 19, 10, 7, '2021-03-09 06:43:22'),
+(51, 19, 9, 8, '2021-03-09 06:43:22'),
+(52, 20, 12, 1, '2021-03-09 06:43:22'),
+(53, 20, 8, 2, '2021-03-09 06:43:22'),
+(54, 20, 11, 3, '2021-03-09 06:43:22'),
+(55, 20, 10, 4, '2021-03-09 06:43:22'),
+(56, 20, 5, 5, '2021-03-09 06:43:22'),
+(57, 20, 7, 6, '2021-03-09 06:43:22'),
+(58, 20, 9, 7, '2021-03-09 06:43:22'),
+(59, 20, 3, 8, '2021-03-09 06:43:22');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `slong`
+--
+
+DROP TABLE IF EXISTS `slong`;
+CREATE TABLE IF NOT EXISTS `slong` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `sid` int(11) NOT NULL,
+  `pid` int(11) NOT NULL,
+  `mid` int(11) NOT NULL,
+  `ans` text,
+  `correct` int(11) NOT NULL DEFAULT '0',
+  `marks` int(11) NOT NULL DEFAULT '0',
+  `datec` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `smcqs`
+--
+
+DROP TABLE IF EXISTS `smcqs`;
+CREATE TABLE IF NOT EXISTS `smcqs` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `sid` int(11) NOT NULL,
+  `pid` int(11) NOT NULL,
+  `mid` int(11) NOT NULL,
+  `ans` text,
+  `correct` int(11) NOT NULL DEFAULT '0',
+  `marks` int(11) NOT NULL DEFAULT '0',
+  `datec` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `spaper`
+--
+
+DROP TABLE IF EXISTS `spaper`;
+CREATE TABLE IF NOT EXISTS `spaper` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `sid` int(11) NOT NULL,
+  `pid` int(11) NOT NULL,
+  `mcqs` int(11) NOT NULL DEFAULT '0',
+  `short` int(11) NOT NULL DEFAULT '0',
+  `long` int(11) NOT NULL DEFAULT '0',
+  `mm` int(11) NOT NULL DEFAULT '0',
+  `ms` int(11) NOT NULL DEFAULT '0',
+  `ml` int(11) NOT NULL DEFAULT '0',
+  `stime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `etime` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `spaper`
+--
+
+INSERT INTO `spaper` (`id`, `sid`, `pid`, `mcqs`, `short`, `long`, `mm`, `ms`, `ml`, `stime`, `etime`) VALUES
+(4, 1, 18, 8, 5, 3, 1, 5, 9, '2021-03-08 11:12:28', NULL),
+(5, 1, 16, 10, 5, 2, 1, 3, 10, '2021-03-09 07:12:36', NULL);
 
 -- --------------------------------------------------------
 
@@ -324,6 +571,53 @@ INSERT INTO `sques` (`id`, `classid`, `subjectid`, `chapterid`, `ques`, `ans`, `
 (10, 3, 8, 1, 'Explain the difference between the speed of transverse wave traveling along a cord and the speed of a tiny colored part of the cord?', ' Transverse waves are those in which particles of the medium vibrate at right angle to the\r\ndirection of propagation of wave motion.\r\nConsider a cord having a colored tiny part. Itâ€™s one end is fixed and the other end is in our hand.\r\nIf we move our hand up and down transverse waves are produced moving in forward direction. As\r\nthese are transverse waves, so each part of the string moves up and down i.e. vibrating up and\r\ndown, while the transverse waves move in the forward direction. Thus, transverse waves move in\r\nthe forward direction while the colored tiny part of the string moves up and down executing SHM.', '2021-02-26 03:44:48'),
 (11, 3, 8, 1, 'Why waves refract at the boundary of shallow and deep water?', ' Refraction of waves involves a change in the direction of waves as they pass from one\r\nmedium to another. In refraction, both speed and wavelength of waves change. The speed of a\r\nwave depends upon the properties of a medium through which it travels. The speed of waves is\r\nnot same in shallow and deep water. Wave travel faster in deep water as compared to shallow\r\nwater. Refraction occurs as the speed of the wave changes.\r\nThus, if water waves are passing from deep water into shallow water, they slow down. The speed\r\nof wave is proportional to the wavelength. So when waves are transmitted from deep water into\r\nshallow water, its speed and wavelength decreases and wave change its direction i.e. refracted.', '2021-02-26 03:45:26'),
 (12, 3, 8, 1, 'What is the effect on diffraction if the opening is made small?', ' Diffraction is the bending of waves around corners of an obstacle. The amount of bending of\r\na wave depends upon the relative size of the wavelength of the wave and size of the opening.\r\nIf the opening is much larger than the wavelength, then very less bending occurs which is\r\nun-noticeable. However, the separation is comparable to the size of the wavelength, and then a\r\nconsiderable bending occurs and can be seen easily with naked eye. Thus, the wave bends more\r\nand more if the opening is made small.', '2021-02-26 03:45:50');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sshort`
+--
+
+DROP TABLE IF EXISTS `sshort`;
+CREATE TABLE IF NOT EXISTS `sshort` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `sid` int(11) NOT NULL,
+  `pid` int(11) NOT NULL,
+  `mid` int(11) NOT NULL,
+  `ans` text,
+  `correct` int(11) NOT NULL DEFAULT '0',
+  `marks` int(11) NOT NULL DEFAULT '0',
+  `datec` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `student`
+--
+
+DROP TABLE IF EXISTS `student`;
+CREATE TABLE IF NOT EXISTS `student` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` text NOT NULL,
+  `email` varchar(31) NOT NULL,
+  `password` varchar(21) NOT NULL,
+  `classid` int(11) DEFAULT NULL,
+  `img` text,
+  `phone` text,
+  `block` int(11) DEFAULT '0',
+  `blockres` text,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `student`
+--
+
+INSERT INTO `student` (`id`, `name`, `email`, `password`, `classid`, `img`, `phone`, `block`, `blockres`, `created_at`) VALUES
+(1, 'Demo Student', 'student@123.com', 'student', 3, '69c8068bd3838527e28e1e004e2359981.png', '2423423', 0, NULL, '2021-02-17 13:52:48');
 
 -- --------------------------------------------------------
 
@@ -363,20 +657,21 @@ CREATE TABLE IF NOT EXISTS `teacher` (
   `name` text NOT NULL,
   `email` varchar(31) NOT NULL,
   `password` varchar(21) NOT NULL,
-  `area` text,
-  `status` int(11) DEFAULT '0',
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `phone` text,
+  `classid` int(11) DEFAULT NULL,
   `img` text,
+  `phone` text,
+  `block` int(11) DEFAULT '0',
+  `blockres` text,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `teacher`
 --
 
-INSERT INTO `teacher` (`id`, `name`, `email`, `password`, `area`, `status`, `created_at`, `phone`, `img`) VALUES
-(1, 'Demo Teacher', 'teach@123.com', 'teach', NULL, 0, '2021-02-17 13:52:48', NULL, NULL);
+INSERT INTO `teacher` (`id`, `name`, `email`, `password`, `classid`, `img`, `phone`, `block`, `blockres`, `created_at`) VALUES
+(1, 'Demo Teacher', 'teacher@123.com', 'teacher', 3, '8e272d2f933400f71138e685cbe091b51.png', '2423423', 0, '', '2021-02-17 13:52:48');
 
 -- --------------------------------------------------------
 
