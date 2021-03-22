@@ -76,11 +76,7 @@ if(isset($_SESSION['admin'])){
                        $rows = mysqli_num_rows($query);
                        if ($rows == 1) {
 
-
-
                        $_SESSION['name']=$username; // Initializing Session
-                      
-                  
                        header("location:admin757/index"); // Redirecting To Other Page
                        } else {
                         echo "Username or Password is Invalid";

@@ -70,21 +70,15 @@ if(isset($_SESSION['teacherid'])){
                        $password1 = str_replace(">", "", $password2);
                        $password = str_replace("'", "", $password1);
 
-
-
                        $query = mysqli_query($con,"SELECT * from teacher where password='$password' AND email='$email'")or die(mysqli_error($con));
                        $rows = mysqli_num_rows($query);
                        if ($rows == 1) {
-
-
 
                        $rowsx =mysqli_query($con,"SELECT id FROM teacher WHERE email='$email'" ) or die(mysqli_error($con));
                    while($rowx=mysqli_fetch_array($rowsx)){
                     $tid= $rowx['id'];
                     }
                        $_SESSION['teacherid']=$tid; // Initializing Session
-                      
-                  
                        header("location:teacher/index.php"); // Redirecting To Other Page
                        } else {
                         echo "email or Password is Invalid";

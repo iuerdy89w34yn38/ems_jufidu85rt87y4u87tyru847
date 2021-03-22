@@ -13,12 +13,10 @@ if(isset($_SESSION['actid'])){
 
   }
 }
+
 // Store Session Data
+
  ?>
-
-
-
-
  <?php 
 
   if(isset($_POST['addcart'])){

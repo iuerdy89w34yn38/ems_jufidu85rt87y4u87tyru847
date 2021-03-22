@@ -27,7 +27,7 @@
 
 
 
-      $sql = "UPDATE classes SET `name` = '$name',`ordr` = '$ordr' WHERE `id` =$id";
+      $sql = "UPDATE paper SET `name` = '$name',`ordr` = '$ordr' WHERE `id` =$id";
 
       mysqli_query($con, $sql) ;
       ($msg=mysqli_error($con));
@@ -48,7 +48,7 @@
 
       $id=$_POST['delcat'.$i];
 
-      $sql = "DELETE FROM classes WHERE id=$id ";
+      $sql = "DELETE FROM paper WHERE id=$id ";
 
       mysqli_query($con, $sql) ;
       ($msg=mysqli_error($con));
@@ -93,6 +93,7 @@
     $msg="Unsuccessful" ;
 
     $name=$_POST['name'];
+    $time=$_POST['time'];
     $tid=$username;
     $clid=$_POST['clid'];
     $sid=$_POST['sid'];
@@ -111,7 +112,7 @@
     $al=$_POST['al'];
     $ml=$_POST['ml'];
 
-   $data=mysqli_query($con,"INSERT INTO paper (tid,clid,sid,chid,name,mheading,tm,am,mm,sheading,ts,`as`,ms,lheading,tl,al,ml)VALUES ($tid,'$clid','$sid','$chid','$name','$mheading','$tm','$am','$mm','$sheading','$ts','$as','$ms','$lheading','$tl','$al','$ml')")or die( mysqli_error($con) );
+   $data=mysqli_query($con,"INSERT INTO paper (tid,clid,sid,chid,name,`time`,mheading,tm,am,mm,sheading,ts,`as`,ms,lheading,tl,al,ml)VALUES ($tid,'$clid','$sid','$chid','$name','$time','$mheading','$tm','$am','$mm','$sheading','$ts','$as','$ms','$lheading','$tl','$al','$ml')")or die( mysqli_error($con) );
     $rows =mysqli_query($con,"SELECT id FROM paper ORDER BY id desc limit 1" ) or die(mysqli_error($con));
     while($row=mysqli_fetch_array($rows)){ 
       $pid = $row['id'];
@@ -196,7 +197,7 @@
         <!-- Basic Table -->
         <div class="col-lg-1">
         </div>
-        <div class="col-lg-10">
+        <div class="col-lg-12">
           <div class="widget-container fluid-height clearfix">
             <div class="heading" style="text-transform: capitalize;">
               <i class="fa fa-images"></i> Existing Papers
@@ -216,6 +217,9 @@
                 </th>
                 <th>
                   Marks
+                </th>
+                <th>
+                  Time
                 </th>
                 <th>
                   Date Created
@@ -242,6 +246,7 @@
                   $id = $row['id']; 
                   $tid = $row['tid']; 
                   $name = $row['name'];
+                  $time = $row['time'];
                   $clid=$row['clid'];
                   $sid=$row['sid'];
                   $chid=$row['chid']; 
@@ -320,6 +325,9 @@
                         <?php echo $total ?> Marks
                       </td>
                       <td>
+                        <?php echo $time ?> Mins
+                      </td>
+                      <td>
                         
                         <?php echo $datec ?>
 
@@ -383,12 +391,19 @@
                                     <td>
                                       Paper Name:
                                     </td>
-                                    <td colspan="3">
+                                    <td colspan="2">
                                       
                                       <input type="text" class="form-control" name="name" value="">
                                     </td>
 
                                     <td>
+                                      Time (Mins)
+
+                                    </td>
+                                    <td>
+
+                                      <input type="text" class="form-control" name="time" value=""> 
+
                                     </td>
 
                                     <td>

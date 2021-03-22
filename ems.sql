@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Mar 09, 2021 at 07:21 AM
+-- Generation Time: Mar 22, 2021 at 12:50 PM
 -- Server version: 5.7.26
 -- PHP Version: 7.3.5
 
@@ -249,6 +249,7 @@ CREATE TABLE IF NOT EXISTS `paper` (
   `sid` int(11) NOT NULL,
   `chid` varchar(11) DEFAULT NULL,
   `name` text,
+  `time` int(11) DEFAULT NULL,
   `mheading` text,
   `tm` int(11) DEFAULT NULL,
   `am` int(11) DEFAULT NULL,
@@ -264,18 +265,16 @@ CREATE TABLE IF NOT EXISTS `paper` (
   `sol` int(11) NOT NULL DEFAULT '1',
   `datec` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=23 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `paper`
 --
 
-INSERT INTO `paper` (`id`, `tid`, `clid`, `sid`, `chid`, `name`, `mheading`, `tm`, `am`, `mm`, `sheading`, `ts`, `as`, `ms`, `lheading`, `tl`, `al`, `ml`, `sol`, `datec`) VALUES
-(16, 1, 3, 8, '%', 'New Sample Test Paper Name', 'Attempt the Following MCQs. No Multiple Marking Allowed.', 9, 10, 1, 'Attempt any 5 Short Questions of your choice. Extra Questions are not Allowed.', 6, 5, 3, 'Attempt any 3 Long Questions of your choice.', 3, 2, 10, 1, '2021-03-02 02:12:23'),
-(17, 1, 3, 8, '%', 'New Sample Test Paper Name', 'Attempt the Following MCQs. No Multiple Marking Allowed.', 9, 8, 1, 'Attempt any 5 Short Questions of your choice. Extra Questions are not Allowed.', 6, 5, 2, 'Attempt any 3 Long Questions of your choice.', 5, 3, 5, 0, '2021-03-03 08:38:38'),
-(18, 1, 3, 8, '%', 'Test Paper New', 'Attempt the Following MCQs. No Multiple Marking Allowed.', 6, 8, 1, 'Attempt any 5 Short Questions of your choice. Extra Questions are not Allowed.', 5, 5, 5, 'Attempt any 3 Long Questions of your choice.', 4, 3, 9, 0, '2021-03-08 08:42:57'),
-(19, 1, 3, 8, '%', 'Physics paper', 'Attempt the Following MCQs. No Multiple Marking Allowed.', 15, 12, 1, 'Attempt any 5 Short Questions of your choice. Extra Questions are not Allowed.', 8, 5, 2, 'Attempt any 3 Long Questions of your choice.', 4, 3, 6, 1, '2021-03-09 06:43:21'),
-(20, 1, 3, 8, '%', 'Physics paper', 'Attempt the Following MCQs. No Multiple Marking Allowed.', 15, 12, 1, 'Attempt any 5 Short Questions of your choice. Extra Questions are not Allowed.', 8, 5, 2, 'Attempt any 3 Long Questions of your choice.', 4, 3, 6, 1, '2021-03-09 06:43:22');
+INSERT INTO `paper` (`id`, `tid`, `clid`, `sid`, `chid`, `name`, `time`, `mheading`, `tm`, `am`, `mm`, `sheading`, `ts`, `as`, `ms`, `lheading`, `tl`, `al`, `ml`, `sol`, `datec`) VALUES
+(16, 1, 3, 8, '%', 'New Sample Test Paper Name', 44, 'Attempt the Following MCQs. No Multiple Marking Allowed.', 9, 10, 1, 'Attempt any 5 Short Questions of your choice. Extra Questions are not Allowed.', 6, 5, 3, 'Attempt any 3 Long Questions of your choice.', 3, 2, 10, 1, '2021-03-02 02:12:23'),
+(21, 1, 3, 8, '%', 'Test Paper 1', 35, 'Attempt the Following MCQs. No Multiple Marking Allowed.', 4, 4, 1, 'Attempt any 5 Short Questions of your choice. Extra Questions are not Allowed.', 5, 3, 2, 'Attempt any 3 Long Questions of your choice.', 0, 0, 0, 1, '2021-03-22 01:12:26'),
+(22, 1, 3, 8, '%', 'Physics paper New', 36, 'Attempt the Following MCQs. No Multiple Marking Allowed.', 3, 3, 1, 'Attempt any 5 Short Questions of your choice. Extra Questions are not Allowed.', 3, 2, 2, 'Attempt any 3 Long Questions of your choice.', 3, 2, 9, 1, '2021-03-22 03:13:17');
 
 -- --------------------------------------------------------
 
@@ -292,7 +291,7 @@ CREATE TABLE IF NOT EXISTS `plong` (
   `ordr` int(11) DEFAULT NULL,
   `datec` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=63 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=69 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `plong`
@@ -337,7 +336,13 @@ INSERT INTO `plong` (`id`, `pid`, `lid`, `typeid`, `ordr`, `datec`) VALUES
 (59, 20, 12, 2, 1, '2021-03-09 06:43:22'),
 (60, 20, 9, 2, 2, '2021-03-09 06:43:22'),
 (61, 20, 10, 2, 3, '2021-03-09 06:43:22'),
-(62, 20, 11, 2, 4, '2021-03-09 06:43:22');
+(62, 20, 11, 2, 4, '2021-03-09 06:43:22'),
+(63, 22, 4, 1, 1, '2021-03-22 03:13:17'),
+(64, 22, 7, 1, 2, '2021-03-22 03:13:17'),
+(65, 22, 8, 1, 3, '2021-03-22 03:13:17'),
+(66, 22, 12, 2, 1, '2021-03-22 03:13:17'),
+(67, 22, 10, 2, 2, '2021-03-22 03:13:17'),
+(68, 22, 9, 2, 3, '2021-03-22 03:13:17');
 
 -- --------------------------------------------------------
 
@@ -353,7 +358,7 @@ CREATE TABLE IF NOT EXISTS `pmcqs` (
   `ordr` int(11) DEFAULT NULL,
   `datec` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=127 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=134 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `pmcqs`
@@ -413,7 +418,14 @@ INSERT INTO `pmcqs` (`id`, `pid`, `mid`, `ordr`, `datec`) VALUES
 (123, 20, 7, 12, '2021-03-09 06:43:22'),
 (124, 20, 20, 13, '2021-03-09 06:43:22'),
 (125, 20, 21, 14, '2021-03-09 06:43:22'),
-(126, 20, 11, 15, '2021-03-09 06:43:22');
+(126, 20, 11, 15, '2021-03-09 06:43:22'),
+(127, 21, 18, 1, '2021-03-22 01:12:26'),
+(128, 21, 16, 2, '2021-03-22 01:12:26'),
+(129, 21, 15, 3, '2021-03-22 01:12:26'),
+(130, 21, 20, 4, '2021-03-22 01:12:26'),
+(131, 22, 11, 1, '2021-03-22 03:13:17'),
+(132, 22, 20, 2, '2021-03-22 03:13:17'),
+(133, 22, 9, 3, '2021-03-22 03:13:17');
 
 -- --------------------------------------------------------
 
@@ -429,7 +441,7 @@ CREATE TABLE IF NOT EXISTS `pshort` (
   `ordr` int(11) DEFAULT NULL,
   `datec` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=60 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=68 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `pshort`
@@ -468,7 +480,15 @@ INSERT INTO `pshort` (`id`, `pid`, `sid`, `ordr`, `datec`) VALUES
 (56, 20, 5, 5, '2021-03-09 06:43:22'),
 (57, 20, 7, 6, '2021-03-09 06:43:22'),
 (58, 20, 9, 7, '2021-03-09 06:43:22'),
-(59, 20, 3, 8, '2021-03-09 06:43:22');
+(59, 20, 3, 8, '2021-03-09 06:43:22'),
+(60, 21, 10, 1, '2021-03-22 01:12:26'),
+(61, 21, 12, 2, '2021-03-22 01:12:26'),
+(62, 21, 9, 3, '2021-03-22 01:12:26'),
+(63, 21, 6, 4, '2021-03-22 01:12:26'),
+(64, 21, 11, 5, '2021-03-22 01:12:26'),
+(65, 22, 4, 1, '2021-03-22 03:13:17'),
+(66, 22, 10, 2, '2021-03-22 03:13:17'),
+(67, 22, 3, 3, '2021-03-22 03:13:17');
 
 -- --------------------------------------------------------
 
@@ -479,15 +499,30 @@ INSERT INTO `pshort` (`id`, `pid`, `sid`, `ordr`, `datec`) VALUES
 DROP TABLE IF EXISTS `slong`;
 CREATE TABLE IF NOT EXISTS `slong` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `solid` int(11) NOT NULL,
   `sid` int(11) NOT NULL,
   `pid` int(11) NOT NULL,
-  `mid` int(11) NOT NULL,
+  `lid` int(11) NOT NULL,
+  `typeid` int(11) DEFAULT NULL,
   `ans` text,
+  `img` text,
   `correct` int(11) NOT NULL DEFAULT '0',
   `marks` int(11) NOT NULL DEFAULT '0',
   `datec` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `slong`
+--
+
+INSERT INTO `slong` (`id`, `solid`, `sid`, `pid`, `lid`, `typeid`, `ans`, `img`, `correct`, `marks`, `datec`) VALUES
+(1, 11, 1, 22, 4, 1, ' simple pendulum? Diagrammatically show the forces acting on simple pendulum. Also show thasimple pendulum? Diagrammatically show the forces acting on simple pendulum. Also show thasimple pendulum? Diagrammatically show the forces acting on simple pendulum. Also show tha', '', 0, 0, '2021-03-22 07:07:03'),
+(2, 11, 1, 22, 7, 1, ' ', '', 0, 0, '2021-03-22 07:07:03'),
+(3, 11, 1, 22, 8, 1, ' ripple tank explain reflection, refraction and diffraction of waves.\r\n\r\n simple pendulum? Diagrammatically show the forces acting on simple pendulum. Also show thasimple pendulum?  ripple tank explain reflection, refraction and diffraction of waves.\r\n\r\n ripple tank explain reflection, refraction and diffraction of waves.\r\n\r\nDiagrammatically show the forces acting on simple pendulum. Also show thasimple pendulum? Diagrammatically show the forces acting on simple pendulum. Also show thasimple pendulum? Diagrammatically show the forces acting on simple pendulum. Also show thasimple pendulum? Diagrammatically show the forces acting on simple pendulum. Also show thasimple pendulum? Diagrammatically show the forces acting on simple pendulum. Also show thasimple pendulum? Diagrammatically show the forces acting on simple pendulum. Also show tha', '', 0, 0, '2021-03-22 07:07:03'),
+(4, 11, 1, 22, 9, 2, ' ', '', 0, 0, '2021-03-22 07:07:03'),
+(5, 11, 1, 22, 10, 2, ' ', '1e552704b36c8fc10db42169eb23df541.png', 0, 0, '2021-03-22 07:07:03'),
+(6, 11, 1, 22, 12, 2, ' simple pendulum? Diagrammatically show the forces acting on simple pendulum. Also show thasimple pendulum? Diagrammatically show the forces acting on simple pendulum. Also show thasimple pendulum? Diagrammatically show the forces acting on simple pendulum. Also show thasimple pendulum? Diagrammatically show the forces acting on simple pendulum. Also show thasimple pendulum? Diagrammatically show the forces acting on simple pendulum. Also show tha', '9c498cebc7c469704bc1f3266d537d1e1.png', 0, 0, '2021-03-22 07:07:03');
 
 -- --------------------------------------------------------
 
@@ -498,6 +533,7 @@ CREATE TABLE IF NOT EXISTS `slong` (
 DROP TABLE IF EXISTS `smcqs`;
 CREATE TABLE IF NOT EXISTS `smcqs` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `solid` int(11) NOT NULL,
   `sid` int(11) NOT NULL,
   `pid` int(11) NOT NULL,
   `mid` int(11) NOT NULL,
@@ -506,7 +542,18 @@ CREATE TABLE IF NOT EXISTS `smcqs` (
   `marks` int(11) NOT NULL DEFAULT '0',
   `datec` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=42 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `smcqs`
+--
+
+INSERT INTO `smcqs` (`id`, `solid`, `sid`, `pid`, `mid`, `ans`, `correct`, `marks`, `datec`) VALUES
+(41, 12, 1, 16, 15, 'F/x', 1, 1, '2021-03-22 08:57:56'),
+(40, 12, 1, 16, 10, 'SHM', 0, 0, '2021-03-22 08:57:56'),
+(39, 11, 1, 22, 20, 'speed', 1, 1, '2021-03-22 06:41:12'),
+(38, 11, 1, 22, 11, 'T = 1/2âˆšk/m', 0, 0, '2021-03-22 06:41:12'),
+(37, 11, 1, 22, 9, 'become four times', 0, 0, '2021-03-22 06:41:12');
 
 -- --------------------------------------------------------
 
@@ -525,18 +572,24 @@ CREATE TABLE IF NOT EXISTS `spaper` (
   `mm` int(11) NOT NULL DEFAULT '0',
   `ms` int(11) NOT NULL DEFAULT '0',
   `ml` int(11) NOT NULL DEFAULT '0',
+  `m` int(11) NOT NULL DEFAULT '0',
+  `s` int(11) NOT NULL DEFAULT '0',
+  `l` int(11) NOT NULL DEFAULT '0',
+  `tm` int(11) DEFAULT NULL,
+  `ts` int(11) DEFAULT NULL,
+  `tl` int(11) DEFAULT NULL,
   `stime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `etime` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `spaper`
 --
 
-INSERT INTO `spaper` (`id`, `sid`, `pid`, `mcqs`, `short`, `long`, `mm`, `ms`, `ml`, `stime`, `etime`) VALUES
-(4, 1, 18, 8, 5, 3, 1, 5, 9, '2021-03-08 11:12:28', NULL),
-(5, 1, 16, 10, 5, 2, 1, 3, 10, '2021-03-09 07:12:36', NULL);
+INSERT INTO `spaper` (`id`, `sid`, `pid`, `mcqs`, `short`, `long`, `mm`, `ms`, `ml`, `m`, `s`, `l`, `tm`, `ts`, `tl`, `stime`, `etime`) VALUES
+(10, 1, 21, 4, 3, 0, 1, 2, 0, 1, 1, 0, 3, NULL, NULL, '2021-03-22 01:13:03', '2021-03-21 22:15:52'),
+(13, 1, 16, 10, 5, 2, 1, 3, 10, 1, 0, 0, 0, NULL, NULL, '2021-03-22 12:39:39', NULL);
 
 -- --------------------------------------------------------
 
@@ -581,15 +634,31 @@ INSERT INTO `sques` (`id`, `classid`, `subjectid`, `chapterid`, `ques`, `ans`, `
 DROP TABLE IF EXISTS `sshort`;
 CREATE TABLE IF NOT EXISTS `sshort` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `solid` int(11) NOT NULL,
   `sid` int(11) NOT NULL,
   `pid` int(11) NOT NULL,
-  `mid` int(11) NOT NULL,
+  `sqid` int(11) NOT NULL,
   `ans` text,
+  `img` text,
   `correct` int(11) NOT NULL DEFAULT '0',
   `marks` int(11) NOT NULL DEFAULT '0',
   `datec` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=31 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `sshort`
+--
+
+INSERT INTO `sshort` (`id`, `solid`, `sid`, `pid`, `sqid`, `ans`, `img`, `correct`, `marks`, `datec`) VALUES
+(30, 11, 1, 22, 10, ' ', '0b0a2abf2e9fa82ff2caef97882c4aed1.png', 0, 0, '2021-03-22 06:43:02'),
+(26, 10, 1, 21, 11, ' refract at the boundary of shallow and deep wrefract at the boundary of shallow and deep wrefract at the boundary of shallow and deep w', '', 0, 0, '2021-03-22 02:49:42'),
+(27, 10, 1, 21, 12, ' ', '0f8f501cf7871d0849a5e2140a0331bb1.png', 0, 0, '2021-03-22 02:49:42'),
+(28, 11, 1, 22, 3, ' ', '', 0, 0, '2021-03-22 06:43:02'),
+(29, 11, 1, 22, 4, '  What is simple pendulum? Diagrammatically show the forces acting on simple pendulum. Also show that simple\r\npendulum executes SHM. \r\nb) Water waves with wavelength 2.8m, produced in a ripple tank, travel with a speed of 3.80m/s. What is the\r\nfrequency of the straight vibrator that produced them? \r\nQuestion 2: \r\na) Prove the relation between wave speed, wavelength and frequency of wave. \r\nb) A spring requires a force of 100.0N to compress it to a displacement of 4cm.what is its spring constant? ', '', 0, 0, '2021-03-22 06:43:02'),
+(23, 10, 1, 21, 6, ' ', '', 0, 0, '2021-03-22 02:49:42'),
+(24, 10, 1, 21, 9, ' upper end is not visible. How can the length of the rope be deteupper end is not visible. How can the length of the rope be deteupper end is not visible. How can the length of the rope be deteupper end is not visible. How can the length of the rope be dete', '68cba4679aab08cf16282d5cdf1b2ca91.png', 0, 0, '2021-03-22 02:49:42'),
+(25, 10, 1, 21, 10, 'between the speed of transverse wave traveling along a cord and the speed of a tiny colored part between the speed of transverse wave traveling along a cord and the speed of a tiny colored part between the speed of transverse wave traveling along a cord and the speed of a tiny colored part between the speed of transverse wave traveling along a cord and the speed of a tiny colored part ', '', 0, 0, '2021-03-22 02:49:42');
 
 -- --------------------------------------------------------
 
